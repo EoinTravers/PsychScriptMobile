@@ -1,0 +1,39 @@
+
+
+<ion-view title="PsychScript Mobile">
+  <ion-content class="padding">
+		<style>
+			.experiment{
+				text-align:center;
+<!--
+				padding-top:10%;
+-->
+			}
+				text-align:center;
+				position: relative;
+				top: 50%;
+			}
+			.experiment input {width:40%}
+			#probeText {
+				font-size:3em;
+				height:50px; <!-- Not a good way of enforcing this -->
+			}
+		</style>
+
+	<div class="experiment">
+	  <p id = 'textAboveProbe'>Is this a word?</p>
+		<div id = 'probeHolder'>
+			<p id = 'probeText'>
+				<!-- Probe shows up here-->Probe
+			</p>
+		</div>
+		<p id = 'textBelowProbe'>
+			<!-- This area can be used for other text-->
+		</p>
+		<p id = 'responseButtons'>
+			<input type="image" src="img/yes.png" id="yesButton" class = "bigButton"></input>
+			<input type="image" src="img/no.png" id="noButton" class = "bigButton"></input>
+		</p>
+	</div>
+  </ion-content>
+</ion-view>
