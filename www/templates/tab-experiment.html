@@ -8,11 +8,14 @@
 <!--
 				padding-top:10%;
 -->
-			}
+			
+<!--
 				text-align:center;
 				position: relative;
 				top: 50%;
+-->
 			}
+			.hidden{display:none}
 			.experiment input {width:40%}
 			#probeText {
 				font-size:3em;
@@ -34,6 +37,11 @@
 			<input type="image" src="img/yes.png" id="yesButton" class = "bigButton"></input>
 			<input type="image" src="img/no.png" id="noButton" class = "bigButton"></input>
 		</p>
+		<div class="hidden">
+			<form id = "responseForm" name ="Output" method ="POST" action ="save_data.php">
+				<textarea id="csv_input" name="csv_input"></textarea>
+			</form>
+		</div>
 	</div>
   </ion-content>
 </ion-view>

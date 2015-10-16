@@ -21,6 +21,7 @@ var number_of_trials = 40
  */
 var variables_to_log = new Array('paradigm', 'timestamp', 'subject_nr', 'trial_number', 'stimuli_number', 'probe', 'code', 'response', 'rt');
 var data_address = 'save_data.php' // URL to send results to.
+var logging_method = 'csv' // Options: 'csv', 'mysql'
 
 /*
  * Define the variables themselves.
@@ -46,7 +47,7 @@ if(localStorage.stored_data == undefined){
 }
 
 // Check if we can use 'ontouchstart' events
-var input_type = 'onclick'
+var input_type = 'onmousedown'
 if ('ontouchstart' in window){
 	input_type = 'ontouchstart'
 }
@@ -166,7 +167,25 @@ function save_data_to_storage(){
 	console.log(csv_save_text)
 	localStorage.stored_data += '\n\n' + csv_save_text
 	csv_save_text = variables_to_log.join() + '\n'
+};
+
+function sendCsvData(){
+    
 }
+
+function sendData(address){ // POSTs data in responseForm to the address given.
+    $.ajax({
+	    type: "POST",
+	    url: address, // I'm not sure this actually does anything,
+	    // as the address is hard-coded in the html of `responseForm`.
+	    data: $("#responseForm").serialize(), // serializes the form's elements.
+	    success: function(data)
+	    {
+	       console.log('data sent')
+	    }
+    });
+};
+
 
 function end_experiment() {
 	document.getElementById('experiment').style.display = "None";
